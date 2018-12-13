@@ -44,8 +44,8 @@ sudo cp deps/pthreadpool/include/pthreadpool.h /usr/include/
 Build darknet-nnpack
 (note: you can change the makefile to enable or disable any dependency, by default RASPICAM=1, OPENCV=1)
 ```
-git clone https://github.com/digitalbrain79/darknet-nnpack.git
-cd darknet-nnpack
+git clone https://github.com/shadowkane/darknet-nnpack-opencv4.0-raspicam.git
+cd darknet-nnpack-opencv4.0-raspicam
 make
 ```
 
