@@ -1,5 +1,5 @@
 # darknet-nnpack-opencv4.0-raspicam
-this library was test with raspberry pi 3, using opencv 4.0 and raspicam.
+this library tested with raspberry pi 3, using opencv 4.0 and raspicam.
 darknet nnpack uses nnapck to optimize it without using GPU.
 
 originally this library created by pjreddie, (link for darknet website: https://pjreddie.com)
