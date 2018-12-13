@@ -4,7 +4,7 @@ darknet nnpack uses nnapck to optimize it without using GPU.
 
 originally this library created by pjreddie, (link for darknet website: https://pjreddie.com)
 and optimized by digitalbrain79 by adding nnpack, (link for github: https://github.com/digitalbrain79/darknet-nnpack)
-and i just ipdate it to work with opencv 4.0, and uses raspicam for raspberry pi users.
+and i just update it to work with opencv 4.0, and uses raspicam for raspberry pi users.
 
 i will clone the same steps as digitalbrain79 mentions:
 
