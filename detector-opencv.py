@@ -7,7 +7,7 @@ from ctypes import *
 import time
 import numpy as np
 
-pathToDarknet = "/home/pi/Libraries/yolo/3/darknet-nnpack/darknet-nnpack_global/test builds/darknet-nnpack/"
+pathToDarknet = "./"
 pathToDarknetPythonLib = os.path.join(pathToDarknet, "python/");
 sys.path.append(pathToDarknetPythonLib)
 import darknet as dn
@@ -77,6 +77,7 @@ def drawDetectedObjects(detectedObjects, image):
 def detect2(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45, drawBoxes = False, alphabet=None):
     num = c_int(0)
     pnum = pointer(num)
+    dn.predict_image(net, im)
     dets = dn.get_network_boxes(net, image.w, image.h, thresh, hier_thresh, None, 1, pnum)
     num = pnum[0]
     if (nms): dn.do_nms_obj(dets, num, meta.classes, nms);   
