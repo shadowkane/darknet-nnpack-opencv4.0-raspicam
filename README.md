@@ -86,7 +86,7 @@ YOLOv3-tiny | NNPACK=1,ARM_NEON=1, OPENCV=1,RASPICAM=1 | 1.5 (i was able to get 
 Note: i'm still working on this library. at least i need to figure out the problem with "demo". feel free to test this library by yourself, change it and try to get more speed and share with us your work.
 as i said, i'm working with raspberry pi. my goal is to get less then 1 sec for prediction time, using a resolution nothing less then 640x480(3 channels) in case you asking.
 
-#Update
+# Update
 now the library can generate the libdarknet.so that works fine. notice that in your python project you need to add the srand(2222222) and init your nnpack using nnp_initialize().(both from darknet library).
 changes in the Makefile file, now if you want to use the nnpack library you need to add the path in the "NNPACKDIR" variable.
 i added new example "detector-opencv.py" you can check it out, it's almost the same as the original but now you can show the image using opencv or scipy.
