@@ -2,12 +2,9 @@
 
 #include "stdio.h"
 #include "stdlib.h"
-#include "opencv2/opencv.hpp"
-#include "opencv2/highgui/highgui.hpp"
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/core/version.hpp"
-#include "opencv2/videoio/videoio.hpp"
-#include "opencv2/imgcodecs/imgcodecs.hpp"
+
+#include <opencv2/videoio/videoio.hpp>
+//#include <opencv2/opencv.hpp>
 
 #include "image.h"
 
@@ -149,7 +146,7 @@ void *open_video_stream(const char *f, int c, int w, int h, int fps, bool *isWeb
             *isWebcam = true;
             webcam = new RaspiCam_Cv();
 #else
-            printf("this magic number is for raspicam, be real, do you have 9999 camera?!!");
+            fprintf(stderr,"this magic number is for raspicam, be real, do you have 9999 camera?!!");
             return 0;
 #endif // RASPICAM
         }
@@ -177,7 +174,7 @@ void *open_video_stream(const char *f, int c, int w, int h, int fps, bool *isWeb
         else if(c==1) webcam->set(CAP_PROP_FORMAT, CV_8UC1);
         else if(c==3) webcam->set(CAP_PROP_FORMAT, CV_8UC3);
         else fprintf(stderr, "OpenCV can't force opencv cam with %d channels\n", c);
-        printf(" it's webca => w=%d, h=%d \n",w,h);
+        fprintf(stderr," it's webca => w=%d, h=%d \n",w,h);
         if(!webcam->open()) return 0;
         return (void *) webcam;
 #else
@@ -212,7 +209,7 @@ image get_image_from_stream(void *p, bool isWebcam)
 
 image load_image_cv(char *filename, int channels)
 {
-    printf("load image from image opencv! \n");
+    //printf("load image from image opencv! \n");
     int flag = -1;
     if (channels == 0) flag = -1;
     else if (channels == 1) flag = 0;
@@ -256,4 +253,4 @@ void make_window(char *name, int w, int h, int fullscreen)
 
 }
 
-#endif
+#endif // OPENCV

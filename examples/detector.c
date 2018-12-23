@@ -638,6 +638,7 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
 //void demo(char *cfgfile0, char *weightfile0, float thresh0, int cam_index0, const char *filename0, char **names0, int classes, int delay0, char *prefix0, int avg0, float hier0, int w0, int h0, int frames0, int fullscreen0)
 void test_demo_detector(char *datacfg, char *cfgfile, char *weightfile, int cam_index, char *filename, int delay, int avg, float thresh, float hier_thresh, char *prefix, int w, int h, int frames, int fullscreen)
 {
+#ifdef OPENCV && RASPICAM
     list *options = read_data_cfg(datacfg);
     char *name_list = option_find_str(options, "names", "data/names.list");
     char **names = get_labels(name_list);
@@ -706,6 +707,7 @@ void test_demo_detector(char *datacfg, char *cfgfile, char *weightfile, int cam_
 	pthreadpool_destroy(net->threadpool);
 	nnp_deinitialize();
 #endif
+#endif // OPENCV
 }
 
 

@@ -2,11 +2,16 @@
 #define DARKNET_API
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdint.h>
 #include <string.h>
 #include <pthread.h>
+
 #ifdef NNPACK
 #include <nnpack.h>
-#endif
+#endif // NNPACK
+
+
 
 #ifdef GPU
     #define BLOCK 512
@@ -21,20 +26,13 @@
 #endif
 
 #ifdef __cplusplus
-
-    #ifdef OPENCV
-    #include "opencv2/highgui/highgui.hpp"
-    #include "opencv2/imgproc/imgproc.hpp"
-    #include "opencv2/core/version.hpp"
-    #if CV_MAJOR_VERSION == 3
-    #include "opencv2/opencv.hpp"
-    #include "opencv2/videoio/videoio.hpp"
-    #include "opencv2/imgcodecs/imgcodecs.hpp"
-    #endif
-    #endif
-
+#ifdef OPENCV
+#include <opencv2/imgcodecs/imgcodecs.hpp>
+#include <opencv2/videoio/videoio.hpp>
+//#include <opencv2/opencv.hpp>
+#endif // OPENCV
 extern "C" {
-#endif
+#endif //__cplusplus
 
 #define SECRET_NUM -1234
 extern int gpu_index;
